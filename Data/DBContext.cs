@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskManagementSystem.Models;
 
 namespace TaskManagementSystem.Data
@@ -16,6 +17,18 @@ namespace TaskManagementSystem.Data
             // connect to postgres with connection string from app settings
             options.UseNpgsql(Configuration.GetConnectionString("WebApiDatabase"));
         }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder
+        //        .Entity<TodoTask>()
+        //        .Property(e => e.Priority)
+        //        .HasConversion(new EnumToStringConverter<Priority>());
+
+        //    modelBuilder
+        //       .Entity<TodoTask>()
+        //       .Property(e => e.Status)
+        //       .HasConversion(new EnumToStringConverter<Status>());
+        //}
 
         public TaskDBContext(): base() {}
         public DbSet<Member> Members { get; set; }

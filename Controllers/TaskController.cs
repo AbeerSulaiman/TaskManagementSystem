@@ -20,7 +20,7 @@ namespace TaskManagementSystem.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TodoTask>>> GetTaskByCategory([FromQuery] Filter filter)
+        public async Task<ActionResult<IEnumerable<TodoTaskDto>>> GetTaskByCategory([FromQuery] Filter filter)
         {
             var todoTask = _dbContext.TodoTasks.AsQueryable();
 
@@ -36,8 +36,28 @@ namespace TaskManagementSystem.Controllers
             var paginatedTasks = await todoTask.Skip((filter.PageNumber - 1) * filter.PageSize)
             .Take(filter.PageSize)
             .ToListAsync();
+            List<TodoTaskDto> tasksResponse = new List<TodoTaskDto>();  
 
-            return Ok(paginatedTasks);
+            foreach (var todoTask1 in paginatedTasks)
+            {
+                tasksResponse.Add(new TodoTaskDto
+                {
+                    Id = todoTask1.Id,
+                    Name = todoTask1.Name,
+                    DueDate = todoTask1.DueDate,
+                    Description = todoTask1.Description,
+                    TaskListId = todoTask1.TaskListId,
+                    MemberId = todoTask1.MemberId,
+                    Priority = (int)todoTask1.Priority,
+                    Status = (int)todoTask1.Status,
+                    PriorityString = todoTask1.Priority.ToString(),
+                    StatusString = todoTask1.Status.ToString(),
+                });
+           
+        
+            }
+
+            return Ok(tasksResponse);
         }
 
         [HttpGet("sort")]
@@ -94,6 +114,7 @@ namespace TaskManagementSystem.Controllers
                 TaskListId = todoTask.TaskListId,
                 DueDate = todoTask.DueDate,
                 Priority = todoTask.Priority,
+                Status = todoTask.Status,
                 MemberId = todoTask.MemberId
             };
 
@@ -113,7 +134,8 @@ namespace TaskManagementSystem.Controllers
             }
             task.Name = todoTask.Name;
             task.Description = todoTask.Description;
-            task.Priority = todoTask.Priority;
+            task.Priority = (Priority)todoTask.Priority;
+            task.Status = (Status)todoTask.Status;
             task.DueDate = todoTask.DueDate;
             task.TaskListId = todoTask.TaskListId;
             task.MemberId = todoTask.MemberId;
