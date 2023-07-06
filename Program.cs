@@ -1,5 +1,6 @@
 
 using TaskManagementSystem.Data;
+using TaskManagementSystem.GlobalErrorHandler;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,5 +29,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.Run();

@@ -11,7 +11,8 @@
             set { pageSize = (value > maxPageSize) ? maxPageSize : value; }
         }
 
-        public string Priority { get; set; } = string.Empty;
+        public int Priority { get; set; } = 0;
+        public int? Status { get; set; } = null;
         public DateTime? DueDate { get; set; } = null;
 
     }

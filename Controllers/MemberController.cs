@@ -18,13 +18,18 @@ namespace TaskManagementSystem.Controllers
         }
 
         [HttpGet]
-        public async Task <ActionResult<IEnumerable<Member>>> GetAllMembers()
+        public async Task <ActionResult<IEnumerable<MemberDto>>> GetAllMembers()
         {
-            return await _dbContext.Members.Include(x => x.TasksList).ToListAsync();
+            var member = await _dbContext.Members.Include(x => x.TasksList).ToListAsync();
+            if (member == null)
+            {
+                return NotFound();
+            }
+            return Ok(member);
         }
 
         [HttpGet("{Id}")]
-        public async Task<ActionResult<Member>> GetMemberById(int Id)
+        public async Task<ActionResult<MemberDto>> GetMemberById(int Id)
         {
             var member = await _dbContext.Members.Include(x => x.TasksList).FirstOrDefaultAsync(x => x.Id == Id);
             if (member == null)

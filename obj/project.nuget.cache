@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7i0HEQUFp8tUgsSerlpKYQSCUuNUTsIog3WIRMlT5MBOE1MG4I9BSoFcf35k576qDLdg7ioXddPKwtB0ujgKtg==",
+  "dgSpecHash": "oEMGZit1YYPK0y17y80oSk+IhbjZON44EMx+svKzR5uog3FQpDPvYg4XjELeK6qEtE0FSWdt3ZPr5a5gHIuHjg==",
   "success": true,
   "projectFilePath": "C:\\Jahez\\Assesment\\TaskManagementSystem\\TaskManagementSystem.csproj",
   "expectedPackageFiles": [
@@ -24,6 +24,7 @@
     "C:\\Users\\Jahez\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\Jahez\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\Jahez\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\Jahez\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Jahez\\.nuget\\packages\\npgsql\\7.0.4\\npgsql.7.0.4.nupkg.sha512",
     "C:\\Users\\Jahez\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.4\\npgsql.entityframeworkcore.postgresql.7.0.4.nupkg.sha512",
     "C:\\Users\\Jahez\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",

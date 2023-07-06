@@ -45,3 +45,4 @@ C:\Jahez\Assesment\TaskManagementSystem\bin\Debug\net7.0\Swashbuckle.AspNetCore.
 C:\Jahez\Assesment\TaskManagementSystem\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Jahez\Assesment\TaskManagementSystem\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Jahez\Assesment\TaskManagementSystem\obj\Debug\net7.0\TaskManagementSystem.MvcApplicationPartsAssemblyInfo.cs
+C:\Jahez\Assesment\TaskManagementSystem\bin\Debug\net7.0\Newtonsoft.Json.dll
