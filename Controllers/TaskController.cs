@@ -34,17 +34,13 @@ namespace TaskManagementSystem.Controllers
             }
             if (filter.DueDate.HasValue)
             {
-                //var filteredDate = filter.DueDate.Value.ToString("yyyy-MM-dd");
-                //todoTask = todoTask.Where(x => x.DueDate.ToString("yyyy-MM-dd").Equals(filteredDate));
-             
-                todoTask = todoTask.Where(x => x.DueDate == filter.DueDate);
+                todoTask = todoTask.Where(x => x.DueDate.Date == filter.DueDate.Value.Date);
             }
 
-            var paginatedTasks = await todoTask.Skip((filter.PageNumber - 1) * filter.PageSize)
-            .Take(filter.PageSize)
+            var paginatedTasks = await todoTask.Page(new CustomQueryParameters {
+                Page = 1 , PageCount=100})
             .ToListAsync();
-            List<TodoTaskDto> tasksResponse = new List<TodoTaskDto>();  
-
+            List<TodoTaskDto> tasksResponse = new List<TodoTaskDto>();
             foreach (var todoTask1 in paginatedTasks)
             {
                 tasksResponse.Add(new TodoTaskDto

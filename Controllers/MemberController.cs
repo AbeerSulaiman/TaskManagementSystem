@@ -18,13 +18,11 @@ namespace TaskManagementSystem.Controllers
         }
 
         [HttpGet]
-        public async Task <ActionResult<IEnumerable<MemberDto>>> GetAllMembers()
+        public async Task <IActionResult> GetAllMembers()
         {
-            var member = await _dbContext.Members.Include(x => x.TasksList).ToListAsync();
-            if (member == null)
-            {
-                return NotFound();
-            }
+            var member = await _dbContext.Members.Page(new CustomQueryParameters { Page=1
+             , PageCount = 100}).Include(x => x.TasksList).ToListAsync();
+
             return Ok(member);
         }
 
